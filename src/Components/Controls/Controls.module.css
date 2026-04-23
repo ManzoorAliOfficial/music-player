@@ -39,15 +39,17 @@
   width: 66px;
   height: 66px;
   border-radius: 50%;
-  background: var(--accent);
+  background: #FFA200;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+   color: var(--txt);
+
   transition: background 0.2s, transform 0.15s;
-  box-shadow: 0 0 28px rgba(124, 58, 237, 0.45);
+
+box-shadow: 0 0 28px rgba(255, 162, 0, 0.45);
 }
 
 .play-btn svg {
@@ -56,6 +58,5 @@
 }
 
 .play-btn:hover {
-  background: var(--acl);
   transform: scale(1.06);
 }

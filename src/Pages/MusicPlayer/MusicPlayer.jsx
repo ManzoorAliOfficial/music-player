@@ -130,7 +130,6 @@ export default function MusicPlayer() {
   return (
     <div className={styles['music-player-page']}>
 
-      {/* ✅ Fix: Real hidden audio element */}
       <audio ref={audioRef} />
 
       <Sidebar />

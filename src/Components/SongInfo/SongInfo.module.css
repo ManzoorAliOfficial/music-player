@@ -30,19 +30,18 @@
   border: none;
   font-size: 1.4rem;
   cursor: pointer;
-  color: var(--txt3);
+  color: red;
   transition: color 0.2s, transform 0.2s;
   line-height: 1;
-  padding: 2px;
+  padding: 14px;
 }
 
 .liked {
-  color: var(--accent);
+  color: #fff;
 }
 
 .heart-btn:hover {
   transform: scale(1.15);
-  color: var(--acl);
 }
 
 .dots-btn {

@@ -1,6 +1,7 @@
 // src/components/Sidebar/Sidebar.jsx
 import { useState } from "react";
 import styles from './Sidebar.module.css';
+import { AudioLinesIcon, Music2 } from "lucide-react";
 
 const NAV = [
   { label: "Home",      icon: "home"   },
@@ -30,12 +31,15 @@ export default function Sidebar() {
     <nav className={styles.sidebar}>
 
       {/* Logo */}
-      <div className={styles['sb-logo']}>
-        <span className={styles['sb-logo-icon']}>♪</span>
-        <span className={styles['sb-logo-text']}>
-          <span className={styles['sb-logo-mel']}>Mel</span>ody
-        </span>
-      </div>
+     <div className={styles['sb-logo']}>
+  <span className={styles['sb-logo-icon']}>
+    <AudioLinesIcon />
+  </span>
+
+  <span className={styles['sb-logo-text']}>
+    <span className={styles['sb-logo-mel']}>Music</span>Buddy
+  </span>
+</div>
 
       {/* Search */}
       <div className={styles['sb-search']}>

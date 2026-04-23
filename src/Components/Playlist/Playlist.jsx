@@ -62,6 +62,7 @@ export default function Playlist({ songs, currentIndex, isPlaying, onSelect }) {
                 <div className={styles['pl-thumb-moon']} style={{ background: song.moon }} />
                 {active && isPlaying && <PlayingBars />}
               </div>
+              
 
               {/* Info */}
               <div className={styles['pl-info']}>

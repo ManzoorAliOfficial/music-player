@@ -14,6 +14,7 @@ const songs = [
     src: song1,
     duration: "3:56",
     seconds: 236,
+    
     sky: "linear-gradient(180deg,#0d0a25,#1a0f35,#3d1a4a,#5a1a3a,#3a1520,#1a0d18)",
     moon: "radial-gradient(circle at 40% 40%,#f0b0d0,#d070a0,#a04080,#702060)",
     thumb: "linear-gradient(135deg,#2a1545,#1a1030,#2a0d28)",

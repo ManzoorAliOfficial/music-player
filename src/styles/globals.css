@@ -38,8 +38,6 @@ body {
 
 /* Range input reset */
 input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
   outline: none;
   border: none;
   height: 4px;
@@ -51,6 +49,6 @@ input[type="range"]::-webkit-slider-thumb {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--acl2);
+  background-color: #FFA230;
   cursor: pointer;
 }

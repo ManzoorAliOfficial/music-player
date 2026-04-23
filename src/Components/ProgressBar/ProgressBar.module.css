@@ -17,7 +17,10 @@
 .progress-fill {
   height: 100%;
   border-radius: 6px;
-  background: linear-gradient(90deg, var(--accent), var(--acl2));
+  /* background: linear-gradient(90deg, var(--accent), var(--acl2)); */
+  background: #FFA200;
+
+
   position: relative;
   transition: width 0.15s linear;
 }
@@ -30,7 +33,7 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--acl2);
+  background: #FFA200;
 }
 
 .progress-times {

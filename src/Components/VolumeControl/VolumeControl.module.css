@@ -10,7 +10,7 @@
 .vol-icon {
   width: 17px;
   height: 17px;
-  stroke: var(--txt2);
+  stroke: #fff;
   fill: none;
   flex-shrink: 0;
 }
