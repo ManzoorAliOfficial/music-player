@@ -1,8 +1,17 @@
+import song1 from '../assets/songs/song1.mp3';
+import song2 from '../assets/songs/song2.mp3';
+import aajKiRaat from '../assets/songs/Aaj Ki Raat.mp3';
+import dilKithay from '../assets/songs/Dil Kithay Kharayai.mp3';
+import ishqMera from '../assets/songs/Ishq Mera.mp3';
+import wa1 from '../assets/songs/WhatsApp Audio 2025-08-19 at 16.48.32_e01d41bd.mp3';
+import wa2 from '../assets/songs/WhatsApp Audio 2025-08-19 at 16.48.39_6f98e61f.mp3';
+
 const songs = [
   {
     id: 1,
     title: "Midnight Dreams",
     artist: "The Weeknd",
+    src: song1,
     duration: "3:56",
     seconds: 236,
     sky: "linear-gradient(180deg,#0d0a25,#1a0f35,#3d1a4a,#5a1a3a,#3a1520,#1a0d18)",
@@ -13,6 +22,7 @@ const songs = [
     id: 2,
     title: "Blinding Lights",
     artist: "The Weeknd",
+    src: song2,
     duration: "3:20",
     seconds: 200,
     sky: "linear-gradient(180deg,#0d0820,#1a1040,#3a2060,#5040a0,#302060,#0d0820)",
@@ -23,6 +33,7 @@ const songs = [
     id: 3,
     title: "Save Your Tears",
     artist: "The Weeknd",
+    src: aajKiRaat,
     duration: "3:35",
     seconds: 215,
     sky: "linear-gradient(180deg,#080d20,#102040,#1a3060,#1040a0,#102060,#080d20)",
@@ -33,6 +44,7 @@ const songs = [
     id: 4,
     title: "Starboy",
     artist: "The Weeknd ft. Daft Punk",
+    src: dilKithay,
     duration: "3:50",
     seconds: 230,
     sky: "linear-gradient(180deg,#0a0a10,#141420,#28283a,#1e1e30,#141420,#0a0a10)",
@@ -43,6 +55,7 @@ const songs = [
     id: 5,
     title: "Peaches",
     artist: "Justin Bieber ft. Daniel Caesar",
+    src: ishqMera,
     duration: "3:18",
     seconds: 198,
     sky: "linear-gradient(180deg,#180808,#301018,#502030,#703040,#402030,#180808)",
@@ -53,6 +66,7 @@ const songs = [
     id: 6,
     title: "Stay",
     artist: "The Kid LAROI, Justin Bieber",
+    src: wa1,
     duration: "2:21",
     seconds: 141,
     sky: "linear-gradient(180deg,#080d08,#101810,#182818,#103820,#102010,#080d08)",
@@ -63,6 +77,7 @@ const songs = [
     id: 7,
     title: "Heat Waves",
     artist: "Glass Animals",
+    src: wa2,
     duration: "3:58",
     seconds: 238,
     sky: "linear-gradient(180deg,#080818,#101030,#1a1a50,#2828a0,#181840,#080818)",
@@ -73,6 +88,7 @@ const songs = [
     id: 8,
     title: "Shivers",
     artist: "Ed Sheeran",
+    src: song1,
     duration: "3:27",
     seconds: 207,
     sky: "linear-gradient(180deg,#120810,#201020,#381830,#502040,#302030,#120810)",
@@ -83,6 +99,7 @@ const songs = [
     id: 9,
     title: "As It Was",
     artist: "Harry Styles",
+    src: song2,
     duration: "2:47",
     seconds: 167,
     sky: "linear-gradient(180deg,#0a0a18,#141430,#202050,#1828a0,#101830,#0a0a18)",
@@ -93,6 +110,7 @@ const songs = [
     id: 10,
     title: "Happier Than Ever",
     artist: "Billie Eilish",
+    src: aajKiRaat,
     duration: "4:58",
     seconds: 298,
     sky: "linear-gradient(180deg,#080d08,#101810,#183020,#10503a,#102820,#080d08)",

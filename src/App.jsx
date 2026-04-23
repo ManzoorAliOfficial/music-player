@@ -4,5 +4,5 @@ import "./styles/globals.css";
 import MusicPlayer from "./Pages/MusicPlayer/MusicPlayer";
 
 export default function App() {
-  <MusicPlayer/>
+  return <MusicPlayer />;
 }

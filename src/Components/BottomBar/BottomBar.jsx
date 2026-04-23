@@ -10,6 +10,7 @@ export default function BottomBar({
   onNext,
   onPrev,
   onVolumeChange,
+  onToggleLike, // ✅ Fix: yeh prop missing tha
 }) {
   const volBg = `linear-gradient(to right, var(--accent) ${volume}%, #2a2a50 ${volume}%)`;
 

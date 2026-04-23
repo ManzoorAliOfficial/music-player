@@ -12,17 +12,15 @@ import SongInfo      from '../../Components/SongInfo/SongInfo';
 import VolumeControl from '../../Components/VolumeControl/VolumeControl';
 
 import styles from './MusicPlayer.module.css';
-
-import songs  from '../../data/songs'
+import songs  from '../../data/songs';
 
 export default function MusicPlayer() {
   const audioRef = useRef(null);
-  const timerRef = useRef(null);
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPlaying,    setIsPlaying]    = useState(true);
+  const [isPlaying,    setIsPlaying]    = useState(false); // ✅ Fix: false on start
   const [currentTime,  setCurrentTime]  = useState(0);
-  const [duration,     setDuration]     = useState(236);
+  const [duration,     setDuration]     = useState(0);
   const [volume,       setVolume]       = useState(70);
   const [isShuffle,    setIsShuffle]    = useState(false);
   const [isRepeat,     setIsRepeat]     = useState(false);
@@ -31,28 +29,63 @@ export default function MusicPlayer() {
   const song    = songs[currentIndex];
   const isLiked = likedSongs.includes(currentIndex);
 
+  // ✅ Fix: Song change hone par naya src load karo
   useEffect(() => {
-    clearInterval(timerRef.current);
-    if (!isPlaying) return;
-    timerRef.current = setInterval(() => {
-      setCurrentTime((prev) => {
-        if (prev + 1 >= song.seconds) {
-          if (isRepeat) return 0;
-          handleNext();
-          return 0;
-        }
-        return prev + 1;
-      });
-    }, 1000);
-    return () => clearInterval(timerRef.current);
-  }, [isPlaying, currentIndex, isRepeat]);
-
-  useEffect(() => {
-    setCurrentTime(0);
-    setDuration(song.seconds);
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.src = song.src;
+    audio.load();
+    if (isPlaying) {
+      audio.play().catch(() => {});
+    }
   }, [currentIndex]);
 
-  const handlePlayPause  = () => setIsPlaying((p) => !p);
+  // ✅ Fix: Play/Pause real audio par
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) {
+      audio.play().catch(() => {});
+    } else {
+      audio.pause();
+    }
+  }, [isPlaying]);
+
+  // ✅ Fix: Volume real audio par apply karo
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.volume = volume / 100;
+  }, [volume]);
+
+  // ✅ Fix: Real audio events se time/duration update karo
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleTimeUpdate    = () => setCurrentTime(audio.currentTime);
+    const handleLoadedMetadata = () => setDuration(audio.duration);
+    const handleEnded          = () => {
+      if (isRepeat) {
+        audio.currentTime = 0;
+        audio.play().catch(() => {});
+      } else {
+        handleNext();
+      }
+    };
+
+    audio.addEventListener('timeupdate',      handleTimeUpdate);
+    audio.addEventListener('loadedmetadata',  handleLoadedMetadata);
+    audio.addEventListener('ended',           handleEnded);
+
+    return () => {
+      audio.removeEventListener('timeupdate',      handleTimeUpdate);
+      audio.removeEventListener('loadedmetadata',  handleLoadedMetadata);
+      audio.removeEventListener('ended',           handleEnded);
+    };
+  }, [isRepeat, isShuffle, currentIndex]);
+
+  const handlePlayPause = () => setIsPlaying((p) => !p);
 
   const handleNext = () => {
     setCurrentIndex((prev) =>
@@ -64,13 +97,29 @@ export default function MusicPlayer() {
   };
 
   const handlePrev = () => {
-    if (currentTime > 3) { setCurrentTime(0); return; }
+    const audio = audioRef.current;
+    if (audio && audio.currentTime > 3) {
+      audio.currentTime = 0;
+      setCurrentTime(0);
+      return;
+    }
     setCurrentIndex((prev) => (prev - 1 + songs.length) % songs.length);
     setIsPlaying(true);
   };
 
-  const handleSeek       = (newTime) => setCurrentTime(Math.floor(newTime));
-  const handleSelectSong = (index)   => { setCurrentIndex(index); setCurrentTime(0); setIsPlaying(true); };
+  // ✅ Fix: Seek real audio par
+  const handleSeek = (newTime) => {
+    const audio = audioRef.current;
+    if (audio) audio.currentTime = newTime;
+    setCurrentTime(newTime);
+  };
+
+  const handleSelectSong = (index) => {
+    setCurrentIndex(index);
+    setCurrentTime(0);
+    setIsPlaying(true);
+  };
+
   const handleToggleLike = () =>
     setLikedSongs((prev) =>
       prev.includes(currentIndex)
@@ -79,12 +128,15 @@ export default function MusicPlayer() {
     );
 
   return (
-    <div className={styles['music-player-page']}> {/* ✅ CSS Module */}
+    <div className={styles['music-player-page']}>
+
+      {/* ✅ Fix: Real hidden audio element */}
+      <audio ref={audioRef} />
 
       <Sidebar />
 
-      <div className={styles['player-center']}> {/* ✅ CSS Module */}
-        <div className={styles['player-body']}> {/* ✅ CSS Module */}
+      <div className={styles['player-center']}>
+        <div className={styles['player-body']}>
 
           <AlbumCover song={song} />
 
@@ -123,6 +175,7 @@ export default function MusicPlayer() {
           onNext={handleNext}
           onPrev={handlePrev}
           onVolumeChange={setVolume}
+          onToggleLike={handleToggleLike}
         />
       </div>
 
