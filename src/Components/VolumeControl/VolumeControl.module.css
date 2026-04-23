@@ -1,0 +1,36 @@
+/* src/components/VolumeControl/VolumeControl.module.css */
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.vol-icon {
+  width: 17px;
+  height: 17px;
+  stroke: var(--txt2);
+  fill: none;
+  flex-shrink: 0;
+}
+
+.vol-slider {
+  flex: 1;
+  height: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.vol-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--acl2);
+  cursor: pointer;
+}

@@ -1,0 +1,81 @@
+/* src/components/AlbumCover/AlbumCover.module.css */
+
+.album-cover {
+  width: 300px;
+  height: 300px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.cover-sky {
+  position: absolute;
+  inset: 0;
+}
+
+.cover-clouds {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: radial-gradient(ellipse 80% 40% at 50% 30%, rgba(180, 60, 120, 0.35) 0%, transparent 70%);
+}
+
+.cover-moon {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  transition: background 0.5s ease;
+}
+
+.cover-water {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background: linear-gradient(180deg, rgba(80, 20, 60, 0.3) 0%, rgba(40, 10, 40, 0.6) 100%);
+}
+
+.cover-reflection {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(200, 100, 160, 0.7), rgba(200, 100, 160, 0.1));
+}
+
+.cover-figure {
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 40px;
+  background: #0d0a20;
+  clip-path: polygon(30% 0%, 70% 0%, 80% 40%, 100% 40%, 100% 100%, 0% 100%, 0% 40%, 20% 40%);
+}
+
+.cover-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+}
+
+.star {
+  position: absolute;
+  width: 1.5px;
+  height: 1.5px;
+  border-radius: 50%;
+  background: #fff;
+}

@@ -1,0 +1,41 @@
+/* src/components/ProgressBar/ProgressBar.module.css */
+
+.progress-section {
+  width: 100%;
+}
+
+.progress-track {
+  width: 100%;
+  height: 4px;
+  background: #2a2a50;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 9px;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--accent), var(--acl2));
+  position: relative;
+  transition: width 0.15s linear;
+}
+
+.progress-dot {
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--acl2);
+}
+
+.progress-times {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--txt3);
+}
