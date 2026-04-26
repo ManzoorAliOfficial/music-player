@@ -1,19 +1,17 @@
-/* src/pages/MusicPlayer.css */
-
+/* ── DESKTOP LAYOUT ── */
 .music-player-page {
   display: grid;
   grid-template-columns: 230px 1fr 280px;
   height: 100vh;
   overflow: hidden;
-  background: var(--bg2);
-  border-radius: 18px;
+  background: var(--bg);
 }
 
-/* Center column */
 .player-center {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background: var(--bg3);
 }
 
 .player-body {
@@ -24,23 +22,14 @@
   justify-content: center;
   gap: 22px;
   padding: 32px 48px;
-  background: linear-gradient(180deg, #1c1438 0%, #14122a 40%, #0f0f22 100%);
+  background: linear-gradient(180deg, #dbeafe 0%, #eff6ff 50%, #f0f6ff 100%);
   overflow: hidden;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
-  .music-player-page {
-    grid-template-columns: 210px 1fr;
-  }
+  .music-player-page { grid-template-columns: 210px 1fr; }
 }
 
 @media (max-width: 768px) {
-  .music-player-page {
-    grid-template-columns: 1fr;
-  }
-
-  .player-body {
-    padding: 24px 20px;
-  }
+  .music-player-page { display: none !important; }
 }

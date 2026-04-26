@@ -1,22 +1,22 @@
-/* src/styles/globals.css */
-* {
+/* ── SKY BLUE THEME ── */
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 :root {
-  --bg:       #0e0e1c;
-  --bg2:      #13132a;
-  --bg3:      #1c1c38;
-  --bg4:      #1e1840;
-  --accent:   #7c3aed;
-  --acl:      #9d5ff0;
-  --acl2:     #b47ff5;
-  --txt:      #ffffff;
-  --txt2:     #9090b8;
-  --txt3:     #5a5a80;
-  --bdr:      rgba(255,255,255,0.07);
+  --bg:      #eff6ff;
+  --bg2:     #ffffff;
+  --bg3:     #f0f6ff;
+  --bg4:     #dbeafe;
+  --accent:  #2563eb;
+  --acl:     #1d4ed8;
+  --acl2:    #60a5fa;
+  --txt:     #0a1628;
+  --txt2:    #4a6a9a;
+  --txt3:    #90aac8;
+  --bdr:     rgba(37,99,235,0.12);
 }
 
 body {
@@ -27,17 +27,17 @@ body {
   height: 100vh;
 }
 
-#root {
-  height: 100vh;
-}
+#root { height: 100vh; }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
 
-/* Range input reset */
+/* Range input */
 input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
   outline: none;
   border: none;
   height: 4px;
@@ -49,6 +49,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: #FFA230;
+  background: var(--accent);
   cursor: pointer;
+  box-shadow: 0 2px 8px rgba(37,99,235,.3);
 }

@@ -1,65 +1,25 @@
-/* src/components/SongInfo/SongInfo.module.css */
-
 .song-info {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%; display: flex;
+  justify-content: space-between; align-items: center;
 }
-
 .song-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-  color: #fff;
+  font-size: 1.75rem; font-weight: 800;
+  margin-bottom: 4px; color: var(--txt);
 }
-
-.song-artist {
-  color: var(--txt2);
-  font-size: 1rem;
-}
-
-.song-actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
+.song-artist { color: var(--txt2); font-size: 1rem; }
+.song-actions { display: flex; align-items: center; gap: 14px; }
 .heart-btn {
-  background: none;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-  color: red;
-  transition: color 0.2s, transform 0.2s;
-  line-height: 1;
-  padding: 14px;
+  background: none; border: none;
+  font-size: 1.4rem; cursor: pointer;
+  color: var(--txt3);
+  transition: color .2s, transform .2s; line-height: 1; padding: 2px;
 }
-
-.liked {
-  color: #fff;
-}
-
-.heart-btn:hover {
-  transform: scale(1.15);
-}
-
+.liked { color: var(--accent) !important; }
+.heart-btn:hover { transform: scale(1.15); color: var(--accent); }
 .dots-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--txt2);
-  padding: 2px;
-  display: flex;
-  align-items: center;
-  transition: color 0.15s;
+  background: none; border: none; cursor: pointer;
+  color: var(--txt2); padding: 2px;
+  display: flex; align-items: center; transition: color .15s;
 }
-
-.dots-btn svg {
-  width: 18px;
-  height: 18px;
-}
-
-.dots-btn:hover {
-  color: #fff;
-}
+.dots-btn svg { width: 18px; height: 18px; }
+.dots-btn:hover { color: var(--accent); }

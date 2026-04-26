@@ -1,5 +1,4 @@
-// src/components/Controls/Controls.jsx
-import styles from './Controls.module.css';
+import styles from "./Controls.module.css";
 
 function ShuffleIcon() {
   return (
@@ -53,20 +52,19 @@ export default function Controls({
 }) {
   return (
     <div className={styles.controls}>
-
       <button
-        className={`${styles['ctrl-btn']} ${isShuffle ? styles.active : ''}`}
+        className={`${styles["ctrl-btn"]} ${isShuffle ? styles.active : ""}`}
         onClick={onToggleShuffle}
         title="Shuffle"
       >
         <ShuffleIcon />
       </button>
 
-      <button className={styles['ctrl-btn']} onClick={onPrev} title="Previous">
+      <button className={styles["ctrl-btn"]} onClick={onPrev} title="Previous">
         <PrevIcon />
       </button>
 
-      <button className={styles['play-btn']} onClick={onPlayPause}>
+      <button className={styles["play-btn"]} onClick={onPlayPause}>
         {isPlaying ? (
           <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
             <rect x="6" y="4" width="4" height="16" />
@@ -79,18 +77,17 @@ export default function Controls({
         )}
       </button>
 
-      <button className={styles['ctrl-btn']} onClick={onNext} title="Next">
+      <button className={styles["ctrl-btn"]} onClick={onNext} title="Next">
         <NextIcon />
       </button>
 
       <button
-        className={`${styles['ctrl-btn']} ${isRepeat ? styles.active : ''}`}
+        className={`${styles["ctrl-btn"]} ${isRepeat ? styles.active : ""}`}
         onClick={onToggleRepeat}
         title="Repeat"
       >
         <RepeatIcon />
       </button>
-
     </div>
   );
 }

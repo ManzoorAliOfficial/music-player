@@ -1,62 +1,27 @@
-/* src/components/Controls/Controls.module.css */
-
 .controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
+  display: flex; align-items: center;
+  justify-content: center; gap: 28px;
 }
 
 .ctrl-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--txt2);
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.15s, transform 0.15s;
+  background: none; border: none; cursor: pointer;
+  color: var(--txt3); padding: 4px;
+  display: flex; align-items: center; justify-content: center;
+  transition: color .15s, transform .15s;
+  border-radius: 8px;
 }
-
-.ctrl-btn svg {
-  width: 22px;
-  height: 22px;
-  stroke: currentColor;
-  fill: none;
-}
-
-.ctrl-btn:hover {
-  color: #fff;
-  transform: scale(1.1);
-}
-
-.active {
-  color: var(--accent);
-}
+.ctrl-btn svg { width: 22px; height: 22px; stroke: currentColor; fill: none; }
+.ctrl-btn:hover { color: var(--accent); transform: scale(1.1); }
+.active { color: var(--accent) !important; }
 
 .play-btn {
-  width: 66px;
-  height: 66px;
-  border-radius: 50%;
-  background: #FFA200;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-   color: var(--txt);
-
-  transition: background 0.2s, transform 0.15s;
-
-box-shadow: 0 0 28px rgba(255, 162, 0, 0.45);
+  width: 66px; height: 66px;
+  border-radius: 50%; background: var(--accent);
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  transition: background .2s, transform .15s;
+  box-shadow: 0 8px 28px rgba(37,99,235,.4);
 }
-
-.play-btn svg {
-  width: 28px;
-  height: 28px;
-}
-
-.play-btn:hover {
-  transform: scale(1.06);
-}
+.play-btn svg { width: 28px; height: 28px; }
+.play-btn:hover { background: var(--acl); transform: scale(1.06); }

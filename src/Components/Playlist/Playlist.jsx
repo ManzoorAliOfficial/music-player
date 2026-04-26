@@ -21,31 +21,26 @@ function BarIcon() {
   );
 }
 
-export default function Playlist({ songs, currentIndex, isPlaying, onSelect }) {
-  const totalSeconds = songs.reduce((acc, s) => {
-    const [m, sec] = s.duration.split(':').map(Number);
-    return acc + m * 60 + sec;
-  }, 0);
+export default function Playlist({ songs, currentIndex, isPlaying, onSelect, isLoading }) {
+  const totalSeconds = songs.reduce((acc, s) => acc + (s.seconds || 0), 0);
   const totalMin = Math.floor(totalSeconds / 60);
   const totalSec = totalSeconds % 60;
 
   return (
     <div className={styles['playlist-panel']}>
-
       {/* Header */}
       <div className={styles['pl-header']}>
         <span className={styles['pl-header-title']}>Playlist</span>
-        <button className={styles['pl-header-btn']}>
-          <svg viewBox="0 0 24 24">
-            <line x1="8"    y1="6"  x2="21"   y2="6"  />
-            <line x1="8"    y1="12" x2="21"   y2="12" />
-            <line x1="8"    y1="18" x2="21"   y2="18" />
-            <line x1="3"    y1="6"  x2="3.01" y2="6"  />
-            <line x1="3"    y1="12" x2="3.01" y2="12" />
-            <line x1="3"    y1="18" x2="3.01" y2="18" />
-          </svg>
-        </button>
+        <span className={styles['pl-count']}>{songs.length} songs</span>
       </div>
+
+      {/* Loading */}
+      {isLoading && (
+        <div className={styles['pl-loading']}>
+          <div className={styles['pl-spinner']} />
+          <span>Loading songs...</span>
+        </div>
+      )}
 
       {/* Songs */}
       <div className={styles['pl-songs']}>
@@ -57,12 +52,18 @@ export default function Playlist({ songs, currentIndex, isPlaying, onSelect }) {
               className={`${styles['pl-song']} ${active ? styles.active : ''}`}
               onClick={() => onSelect(i)}
             >
-              {/* Thumbnail */}
-              <div className={styles['pl-thumb']} style={{ background: song.thumb }}>
-                <div className={styles['pl-thumb-moon']} style={{ background: song.moon }} />
+              {/* Thumbnail — real image or gradient */}
+              <div
+                className={styles['pl-thumb']}
+                style={{ background: song.image ? 'transparent' : (song.thumb || '#1c1c38') }}
+              >
+                {song.image ? (
+                  <img src={song.image} alt={song.title} className={styles['pl-thumb-img']} />
+                ) : (
+                  <div className={styles['pl-thumb-moon']} style={{ background: song.moon }} />
+                )}
                 {active && isPlaying && <PlayingBars />}
               </div>
-              
 
               {/* Info */}
               <div className={styles['pl-info']}>
@@ -81,9 +82,8 @@ export default function Playlist({ songs, currentIndex, isPlaying, onSelect }) {
 
       {/* Footer */}
       <div className={styles['pl-footer']}>
-        {songs.length} songs, {totalMin} min {totalSec} sec
+        {songs.length} songs • {totalMin}:{totalSec < 10 ? '0' : ''}{totalSec} min
       </div>
-
     </div>
   );
 }

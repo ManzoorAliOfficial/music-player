@@ -1,0 +1,41 @@
+.search-wrap {
+  padding: 16px 20px 10px;
+  border-bottom: 1px solid var(--bdr); flex-shrink: 0;
+  background: var(--bg2);
+}
+.search-form {
+  display: flex; align-items: center;
+  background: var(--bg3); border: 1.5px solid var(--bdr);
+  border-radius: 10px; padding: 8px 12px; gap: 8px;
+  margin-bottom: 10px; transition: border-color .2s;
+}
+.search-form:focus-within { border-color: var(--accent); }
+.search-icon { width: 16px; height: 16px; stroke: var(--txt3); stroke-width: 2; fill: none; flex-shrink: 0; }
+.search-input {
+  flex: 1; background: transparent; border: none;
+  outline: none; color: var(--txt); font-size: 13px;
+}
+.search-input::placeholder { color: var(--txt3); }
+.search-btn {
+  background: var(--accent); color: #fff;
+  border: none; border-radius: 6px;
+  padding: 4px 10px; font-size: 12px; cursor: pointer;
+  flex-shrink: 0; transition: background .2s; font-family: inherit;
+}
+.search-btn:hover { background: var(--acl); }
+.spinner {
+  width: 14px; height: 14px;
+  border: 2px solid var(--bdr);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin .7s linear infinite; flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.genre-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.genre-btn {
+  background: var(--bg4); border: 1px solid var(--bdr);
+  color: var(--txt2); border-radius: 20px;
+  padding: 4px 10px; font-size: 11px; cursor: pointer;
+  transition: all .2s; font-family: inherit;
+}
+.genre-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
